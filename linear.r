@@ -8,6 +8,7 @@ y = sin(x)
 
 # Print the values so can copy them to Stan
 
+options(digits = 10)
 print(x)
 print(y)
 

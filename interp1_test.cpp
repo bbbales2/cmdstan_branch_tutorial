@@ -3,6 +3,11 @@
 #include <test/unit/expect_near_rel.hpp>
 #include <vector>
 
+// This file goes in test/unit/math/prim/fun/
+//
+// To run the test type:
+//  ./runTest.py test/unit/math/prim/fun/interp1_test.cpp
+
 TEST(MathPrim, interp1_test) {
   Eigen::VectorXd x(5);
   x << 0.00, 1.25, 2.50, 3.75, 5.00;
@@ -14,6 +19,11 @@ TEST(MathPrim, interp1_test) {
   Eigen::VectorXd y_ref(4); // Reference values from R
   y_test << 0.7591876955, 0.8228001283, 0.7106361362, -0.6490339099;
 
+  // The definition for stan::math::interp1 should be in
+  //  stan/math/prim/fun/interp1.hpp
+  //
+  //  This file should be included in
+  //   stan/math/prim/fun.hpp so it gets included here
   Eigen::VectorXd y_test = stan::math::interp1(x, y, x_test);
 
   stan::test::expect_near_rel(y_test, y_ref);
